@@ -15,6 +15,8 @@ mongoose.connect(process.env.MONGO_URI);
 mongoose.connection.on('error', (error: Error) => console.log(error));
 
 app.use(cookieParser());
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 app.use('/api/users', userRoutes);
 
